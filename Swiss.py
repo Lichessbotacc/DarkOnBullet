@@ -16,7 +16,7 @@ if not API_TOKEN:
 
 # Turnieroptionen mit klaren Namen
 OPTIONS = [
-     {"name": "Hourly Bullet 1/2+0",   "clock": {"limit": 30,  "increment": 0},  "nbRounds": 20},                                                
+     {"name": "Hourly Bullet 30s+0",   "clock": {"limit": 30,  "increment": 0},  "nbRounds": 20},                                                
      {"name": "Hourly Bullet 1+0",   "clock": {"limit": 60,  "increment": 0},  "nbRounds": 15}, 
      {"name": "Hourly Bullet 1+1",   "clock": {"limit": 60,  "increment": 1},  "nbRounds": 11},
      {"name": "Hourly Bullet 2+1",   "clock": {"limit": 120,  "increment": 1},  "nbRounds": 9},
@@ -26,7 +26,7 @@ OPTIONS = [
 def utc_millis_for_hour(hour):
     utc = pytz.utc
     now = datetime.now(utc)
-    tomorrow = now + timedelta(days=0)
+    tomorrow = now + timedelta(days=1)
     start = datetime(tomorrow.year, tomorrow.month, tomorrow.day, hour, 25, tzinfo=utc)
     return int(start.timestamp() * 1000), start
 
